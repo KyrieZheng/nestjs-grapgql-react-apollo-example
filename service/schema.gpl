@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CreateSettingDto {
+  ID: String!
+  key: String!
+  value: String!
+  is_front: Float!
+}
+
+type CreateTodoListDto {
+  id: Float
+  name: String
+  done: Boolean
+}
+
+type HttpResponse {
+  code: Float!
+  msg: String!
+}
+
+type Query {
+  getSetting(key: String!): [CreateSettingDto!]!
+  getSettingOne(key: String!): CreateSettingDto!
+  getTodo(name: String!): CreateTodoListDto
+  getTodos: [CreateTodoListDto!]!
+}
+
+type Mutation {
+  createSetting(data: inputSetting!): CreateSettingDto!
+  createTodo(data: inputTodo!): CreateTodoListDto!
+  updateTodo(data: inputTodo!): CreateTodoListDto!
+  deleteTodo(id: Float!): HttpResponse!
+}
+
+input inputSetting {
+  key: String!
+  value: String!
+  is_front: Float!
+}
+
+input inputTodo {
+  id: Float!
+  name: String!
+  done: Boolean!
+}
